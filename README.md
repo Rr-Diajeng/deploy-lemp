@@ -1,11 +1,11 @@
- Vagrant LEMP
+ # Vagrant LEMP
 
- **Contents**
+ ## **Contents**
 
 - [Getting Started](#getting-started)
 - [Initialize](#initialize)
 - [Edit Vagrantfile](#edit-vagrantfile)
-- [Create Shell Provisioner](#create-shell-provisioner)
+- [Create Shell Provisioning](#create-shell-provisioning)
 - [Create Nginx configuration](#create-nginx-configuration)
 - [Upload Laravel project](#upload-laravel-project)
 - [Running the project](#running-the-project)
@@ -73,7 +73,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-## Create Shell Provisioner
+## Create Shell Provisioning
 on the root project directory, create a new .sh file, called 'command.sh'.
 
 ```
