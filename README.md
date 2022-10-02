@@ -39,8 +39,7 @@ vagrant init
 ## Edit Vagrantfile
 Open your text editor to edit the Vagrantfile, and add this section.
 
-```json
-
+```
 Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
