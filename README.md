@@ -23,12 +23,12 @@
 - [Vagrant Destory](#vagrant-destory)
 
 ## Getting Started
-Setup LEMP (Linux, Nginx, MySQL, and PHP) using Vagrant, build uses ![**generic/ubuntu2004**](https://app.vagrantup.com/generic/boxes/ubuntu2004) Vagrant box for the official Ubuntu Server 20.04 LTS.
+Setup LEMP (Linux, Nginx, MySQL, and PHP) using Vagrant, build uses [generic/ubuntu2004](https://app.vagrantup.com/generic/boxes/ubuntu2004) Vagrant box for the official Ubuntu Server 20.04 LTS.
 
 To running this project, you first need Vitualbox and Vagrant installed on your system. Visit the downloads pages below and follow the instructions for operating system:
 
- - ![Virtualbox Download](https://www.virtualbox.org/wiki/Downloads)
- - ![Vagrant Download](https://www.vagrantup.com/downloads)
+ - [Virtualbox Download](https://www.virtualbox.org/wiki/Downloads)
+ - [Vagrant Download](https://www.vagrantup.com/downloads)
 
 ## Initialize
 Add this command to initializes your directory to be a Vagrant environment
@@ -79,8 +79,6 @@ on the root project directory, create a new .sh file, called 'command.sh'.
 ```
 #!/bin/bash
 
-PASSWORD='vagrant'
-
 #Update
 sudo apt-get update
 
@@ -110,7 +108,7 @@ sudo apt-get install php8.0-curl php8.0-mysql php8.0-fpm -y
 # Set MYSQL password
 sudo apt-get install debconf-utils -y
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password root"
 
 # install MYSQL
 sudo apt-get install mysql-server -y
