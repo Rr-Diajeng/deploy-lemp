@@ -148,7 +148,10 @@ server {
 ```
 
 ## Upload Laravel project
-Then create new folder on the root project, called 'project'.
+Then create new folder on the root project, called 'project'. You can use Laravel Project from this repo:
+```
+git clone https://gitlab.com/kuuhaku86/web-penugasan-individu.git
+```
 
 ## Running the project
 
