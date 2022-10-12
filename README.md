@@ -221,9 +221,9 @@ sudo composer update
 
 ### Upgrade Composer 
 ```
-sudo run which composer (output /usr/bin/composer)
-sudo run php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-sudo run sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
+sudo which composer
+sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
 ```
 
 ## Artisan
