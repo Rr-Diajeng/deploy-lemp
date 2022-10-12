@@ -32,14 +32,14 @@ To running this project, you first need Vitualbox and Vagrant installed on your 
 
 ## Initialize
 Add this command to initializes your directory to be a Vagrant environment
-```
+```shell
 vagrant init
 ```
 
 ## Edit Vagrantfile
 Open your text editor to edit the Vagrantfile, and add this section.
 
-```
+```ruby
 Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
@@ -59,6 +59,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "1024"
     vb.cpus = 2
     vb.gui = true
+  end
 
   config.vm.provision "shell", path: "command.sh"
 
@@ -67,16 +68,13 @@ Vagrant.configure("2") do |config|
 
   #Copy Laravel Project
   config.vm.synced_folder "project", "/var/www/project", create: true, group: "www-data", owner: "www-data"
-  end
-  
-
 end
 ```
 
 ## Create Shell Provisioning
 on the root project directory, create a new .sh file, called 'command.sh'.
 
-```
+```shell
 #!/bin/bash
 
 #Update
@@ -102,7 +100,7 @@ sudo apt update
 sudo apt install php8.0-common php8.0-cli
 
 # install PHP package
-sudo apt-get install php8.0-mbstring php8.0-xml unzip composer -y
+sudo apt-get install php8.0-mbstring php8.0-xml unzip -y
 sudo apt-get install php8.0-curl php8.0-mysql php8.0-fpm -y
 
 # Set MYSQL password
@@ -124,7 +122,7 @@ sudo service nginx restart
 ## Create Nginx configuration
 inside the root project, create a new folder called 'config'. Then create a new configuration file for Nginx inside the config folder. This folder can be synced with the VM.
 
-```
+```shell
 server {
         listen 80;
         root /var/www/html/project/public;
@@ -149,25 +147,25 @@ server {
 
 ## Upload Laravel project
 Then create new folder on the root project, called 'project'. You can use Laravel Project from this repo:
-```
+```shell
 git clone https://gitlab.com/kuuhaku86/web-penugasan-individu.git
 ```
 
 ## Running the project
 
-```
+```shell
 vagrant up
 ```
 
 Access the VM using vagrant SSH.
 
-```
+```shell
 vagrant ssh
 ```
 
 ## Create new Database
 Access MySQL
-```
+```shell
 sudo mysql -u root -p <- default null password
 
 CREATE DATABASE DATABASE_NAME;
@@ -190,7 +188,7 @@ LOG_DEBUG=true
 ### Edit .env file
 config the DB_DATABASE, DB_USERNAME, DB_PASSWORD and other.
 
-```
+```shell
 APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=
@@ -208,18 +206,18 @@ DB_USERNAME=root
 ```
 ## Composer
 
-### Install Composer
+### Composer Install
 ```
 sudo composer install
 ```
 
-### Update composer (optional)
+###  Composer Update(optional)
 
 ```
 sudo composer update
 ```
 
-### Upgrade composer (optional)
+### Composer Upgrade (optional)
 ```
 sudo run which composer (output /usr/bin/composer)
 sudo run php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
