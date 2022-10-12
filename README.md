@@ -23,7 +23,7 @@
 - [Vagrant Destory](#vagrant-destory)
 
 ## Getting Started
-Setup LEMP (Linux, Nginx, MySQL, and PHP) using Vagrant, build uses [generic/ubuntu2004](https://app.vagrantup.com/generic/boxes/ubuntu2004) Vagrant box for the official Ubuntu Server 20.04 LTS.
+Setup LEMP (Linux, Nginx, MySQL, and PHP) using Vagrant, build uses [gusztavvargadr/ubuntu-server](https://app.vagrantup.com/gusztavvargadr/boxes/ubuntu-server) Vagrant box for the official Ubuntu Server 20.04 LTS.
 
 To running this project, you first need Vitualbox and Vagrant installed on your system. Visit the downloads pages below and follow the instructions for operating system:
 
@@ -48,7 +48,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
 
-  config.vm.box = "generic/ubuntu2004"
+  config.vm.box = "gusztavvargadr/ubuntu-server"
   config.vm.network "private_network", ip: "192.168.1.10"
 
   config.vm.provider "virtualbox" do |vb|
