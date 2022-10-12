@@ -97,7 +97,7 @@ sudo ufw allow 443
 sudo ufw allow 80
 sudo ufw allow 22
 
-# you should install PHP8.0 version to run the Laravel Project
+# You should install PHP8.0 version to run the Laravel Project
 sudo apt update 
 sudo apt install php8.0-common php8.0-cli -y
 
