@@ -2,25 +2,27 @@
 
  ## **Contents**
 
-- [Getting Started](#getting-started)
-- [Initialize](#initialize)
-- [Edit Vagrantfile](#edit-vagrantfile)
-- [Create Shell Provisioning](#create-shell-provisioning)
-- [Create Nginx configuration](#create-nginx-configuration)
-- [Upload Laravel project](#upload-laravel-project)
-- [Running the project](#running-the-project)
-- [Create new Database](#create-new-database)
-- [Create Application Environment](#create-application-environment)
-  - [Add debug](#add-debug)
-  - [Edit .env file](#edit-env-file)
-- [Composer](#composer)
-  - [Install Composer](#install-composer)
-  - [Update composer (optional)](#update-composer-optional)
-  - [Upgrade composer (optional)](#upgrade-composer-optional)
-- [Artisan](#artisan)
-- [Some Errors](#some-errors)
-  - [what appears is still the Nginx default page](#what-appears-is-still-the-nginx-default-page)
-- [Vagrant Destory](#vagrant-destory)
+- [Vagrant LEMP](#vagrant-lemp)
+  - [**Contents**](#contents)
+  - [Getting Started](#getting-started)
+  - [Initialize](#initialize)
+  - [Edit Vagrantfile](#edit-vagrantfile)
+  - [Create Shell Provisioning](#create-shell-provisioning)
+  - [Create Nginx configuration](#create-nginx-configuration)
+  - [Upload Laravel project](#upload-laravel-project)
+  - [Running the project](#running-the-project)
+  - [Create new Database](#create-new-database)
+  - [Create Application Environment](#create-application-environment)
+    - [Add debug](#add-debug)
+    - [Edit .env file](#edit-env-file)
+  - [Composer](#composer)
+    - [Composer Install](#composer-install)
+    - [Composer Update(optional)](#composer-updateoptional)
+    - [Upgrade Composer](#upgrade-composer)
+  - [Artisan](#artisan)
+  - [Some Errors](#some-errors)
+    - [what appears is still the Nginx default page](#what-appears-is-still-the-nginx-default-page)
+  - [Vagrant Destory](#vagrant-destory)
 
 ## Getting Started
 Setup LEMP (Linux, Nginx, MySQL, and PHP) using Vagrant, build uses [gusztavvargadr/ubuntu-server](https://app.vagrantup.com/gusztavvargadr/boxes/ubuntu-server) Vagrant box for the official Ubuntu Server 20.04 LTS.
@@ -88,7 +90,7 @@ sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get install nginx -y
 
 # Set firewall permission
-sudo ufw enable
+echo "y" | sudo ufw enable
 sudo ufw allow ssh
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 443
@@ -97,19 +99,19 @@ sudo ufw allow 22
 
 # you should install PHP8.0 version to run the Laravel Project
 sudo apt update 
-sudo apt install php8.0-common php8.0-cli
+sudo apt install php8.0-common php8.0-cli -y
 
 # install PHP package
-sudo apt-get install php8.0-mbstring php8.0-xml unzip -y
+sudo apt-get install php8.0-mbstring php8.0-xml composer unzip -y
 sudo apt-get install php8.0-curl php8.0-mysql php8.0-fpm -y
+
+# install MYSQL
+sudo apt-get install mysql-server -y
 
 # Set MYSQL password
 sudo apt-get install debconf-utils -y
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password root"
-
-# install MYSQL
-sudo apt-get install mysql-server -y
 
 # Nginx config
 sudo cp /var/www/config/example.conf /etc/nginx/sites-available/example.conf
@@ -217,7 +219,7 @@ sudo composer install
 sudo composer update
 ```
 
-### Composer Upgrade (optional)
+### Upgrade Composer 
 ```
 sudo run which composer (output /usr/bin/composer)
 sudo run php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"

@@ -11,14 +11,14 @@ sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get install nginx -y
 
 # Set firewall permission
-sudo ufw enable
+echo "y" | sudo ufw enable
 sudo ufw allow ssh
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 443
 sudo ufw allow 80
 sudo ufw allow 22
 
-# you should install PHP8.0 version to run the Laravel Project
+# You should install PHP8.0 version to run the Laravel Project
 sudo apt update 
 sudo apt install php8.0-common php8.0-cli
 
@@ -26,13 +26,13 @@ sudo apt install php8.0-common php8.0-cli
 sudo apt-get install php8.0-mbstring php8.0-xml unzip composer -y
 sudo apt-get install php8.0-curl php8.0-mysql php8.0-fpm -y
 
+# install MYSQL
+sudo apt-get install mysql-server -y
+
 # Set MYSQL password
 sudo apt-get install debconf-utils -y
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password root"
-
-# install MYSQL
-sudo apt-get install mysql-server -y
 
 # Nginx config
 sudo cp /var/www/config/example.conf /etc/nginx/sites-available/example.conf
