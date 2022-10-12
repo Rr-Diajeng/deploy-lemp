@@ -127,7 +127,7 @@ inside the root project, create a new folder called 'config'. Then create a new 
 ```shell
 server {
         listen 80;
-        root /var/www/html/project/public;
+        root /var/www/project/public;
         index index.php index.html index.htm index.nginx-debian.html;
 
         server_name localhost;
