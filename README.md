@@ -80,10 +80,10 @@ on the root project directory, create a new .sh file, called 'command.sh'.
 #!/bin/bash
 
 #Update
-sudo apt-get update
+sudo apt-get update -y
 
 #Install dependencies and add PHP8.0 repository
-sudo apt install  ca-certificates apt-transport-https software-properties-common -y
+sudo apt-get install  ca-certificates apt-transport-https software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php -y
 
 # install nginx
@@ -98,11 +98,11 @@ sudo ufw allow 80
 sudo ufw allow 22
 
 # You should install PHP8.0 version to run the Laravel Project
-sudo apt update 
-sudo apt install php8.0-common php8.0-cli -y
+sudo apt-get update -y
+sudo apt-get install php8.0-common php8.0-cli -y
 
 # install PHP package
-sudo apt-get install php8.0-mbstring php8.0-xml composer unzip -y
+sudo apt-get install php8.0-mbstring php8.0-xml unzip composer -y
 sudo apt-get install php8.0-curl php8.0-mysql php8.0-fpm -y
 
 # install MYSQL
@@ -119,6 +119,7 @@ sudo cp /var/www/config/example.conf /etc/nginx/sites-available/example.conf
 # Copy to sites-enabled directory
 sudo ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled
 sudo service nginx restart
+
 ```
 
 ## Create Nginx configuration
